@@ -1,0 +1,22 @@
+<html>
+
+<body>
+  <center>
+    <h1><u>Word Count Report</u></h1>
+    <h3><a href="{% url 'home' %}">Start Again</a></h3>
+  </center>
+  <h1>There are {{ length }} words in your text</h1>
+  <h2>Your text:</h2>
+  <font size=4>
+    {{ yourtext }}
+  </font>
+  <h2>Word Count:</h2>
+  <font size=4>
+    {% for word,count in sortedlist %}
+    {{ word }} -- {{ count }}
+    <br>
+    {% endfor %}
+  </font>
+</body>
+
+</html>

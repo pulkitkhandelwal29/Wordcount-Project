@@ -1,0 +1,23 @@
+<html>
+
+<body bgcolor='lightblue'>
+  <center>
+    <br>
+    <h1>Word Count Project</h1>
+    <h3>Who are we, Let's find out <a href="{% url 'aboutus' %}">About Us</a></h3><br>
+    <h3>
+      {{ hey }}
+      <!--calling the key of the dictionary in python file to print the data-->
+    </h3>
+    <form action="{% url 'count' %}">
+      <!-- count here is the name acting as reference in urls.py-->
+      <textarea cols='40' rows='10' name="fulltext"></textarea>
+      <br><br>
+      <input type="submit" value="Count!"><br><br>
+    </form>
+    <br><br><br><br><br>
+    @2021 Pulkit Khandelwal
+</body>
+</center>
+
+</html>
