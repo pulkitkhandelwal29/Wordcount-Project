@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path and the file of the html(here python file and its function)
+    # path and the file of the html(here python file and its function defined in views.py)
+    #Homepage
     path('', views.home, name='home'),
     # name here is acting as reference in form action
     path('countwords/', views.count, name='count'),

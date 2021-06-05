@@ -1,7 +1,9 @@
-# to send response by just typing here in python file(HttpResponse)
+# to send response to the webpage(HttpResponse)
 from django.http import HttpResponse
 
-from django.shortcuts import render  # to render the html file
+#We need to tell Django, where to look for templates (entry in settings.py)
+# to render the html file
+from django.shortcuts import render
 
 import operator
 
@@ -9,9 +11,9 @@ import operator
 # def home(request):
 #     return HttpResponse('Hello to Django')
 
-
+#Request is that we got from the urls.py
 def home(request):
-    # Using render
+    # Using render for home.html (request,html file,what other information you want to send in dictionary form)
     return render(request, 'home.html', {'hey': 'Let\'s count the WORDS'})
     # Passing dictionary as another parameter and in html just call the key name
 
@@ -22,6 +24,7 @@ def count(request):
 
     wordlist = fulltext.split()
 
+    #Which word appeared the most?
     worddictionary = {}
 
     for word in wordlist:
@@ -35,8 +38,9 @@ def count(request):
             worddictionary[word] = 1
 
     sortedlist = sorted(worddictionary.items(), key=operator.itemgetter(
-        1), reverse=True)  # sorting the dictionary
+        1), reverse=True)  # sorting the dictionary based on the count of words
 
+    #Returning html file with 'youtext','length','sortedlist' keys to pass the value to the html file
     return render(request, 'count.html', {'yourtext': fulltext, 'length': len(wordlist), 'sortedlist': sortedlist})
 
 
